@@ -1,5 +1,6 @@
 from PesquisarMusica import formatar_musica
 from tqdm import tqdm
+import time
 
 def receber_caminhos():
     hinos = []
