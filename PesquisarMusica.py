@@ -48,7 +48,7 @@ def ler_titulos():
                 if musica:
                     print(f"{nome} | {artista} - letra encontrada")
                     guardar_musica(musica)
-                    pesquisar(nome, artista)
+                    pesquisar(nome, artista, parametro[2:])
                 else:
                     print(f"{nome} | {artista} - letra não encontrada")
                     continue
@@ -70,7 +70,7 @@ def buscar_musicas(nome, artista):
         if musica['type'] in ['exact','aprox']: 
             print(f"\nMusica encontrada com sucesso!!\nLetra disponivel em: \n\t--> {musica['mus'][0]['url']}")  
             guardar_musica(musica)
-            pesquisar(nome, artista, "playabck")
+            pesquisar(*parametro)
             return musica  
           
     return False
@@ -126,7 +126,29 @@ def guardar_musica(musica):
     except:
         print(f"Não foi possivel guardar essa musica '{nome} - {artista}' ")
 
-buscar_musicas("Desejo Missionário", "Mara Lima")
+tutorial = """"
+Music and Lyrics Download
+Como utilizar: [nome da musica] - [nome do artista] - [modo de audio] [modo de pesquisa]
+Ex: "Eu quero ser santo - Eyshila - Playback"
+
+- Parâmetros -
+-- Obrigatórios*:
+[nome da musica]       Insira aqui o nome da música em si
+[nome do artista]      Insira aqui o nome do artista da musica, opcional para baixar a musica, mas essencial para a letra
+
+-- Opcionais:
+[modo de audio]        Insira 'Playback' caso queira a música sem a voz. (Padrão: Normal)
+[modo de pesquisa]     Insira '-p' para pesquisar usando 'pytube.search' (Padrão: -a : Youtube API)
+
+"""
+print(tutorial)
+
+def teste(nome, artista = '', audio = '', modo = '-a'):
+    print(nome, artista, audio, modo, sep="|")
+
+parametro = input("Faça sua pesquisa:").split(" - ")
+# print(*parametro[0:2])
+buscar_musicas(*parametro[0:2])
 
 # buscar_musicas(
 #     input(">Nome da música: "),
