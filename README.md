@@ -42,16 +42,23 @@ O usuário insere o nome da música + artista que deseja baixar. Com esses dados
 
 ## Linguagens, dependencias e pré-requisitos:books:
 :warning: [Python 3](https://www.python.org/downloads/)
-
-:warning: [Python Requests](https://requests.readthedocs.io/en/latest/)
-
-:warning: [Pytube](https://pytube.io/en/latest/)
-
+#### Libs Nativas:
 :warning: [Subprocess](https://docs.python.org/3/library/subprocess.html)
 
 :warning: [OS](https://docs.python.org/3/library/os.html)
 
 :warning: [TQDM](https://tqdm.github.io/)
+#### Libs de Terceiros
+:warning: [Python Requests](https://requests.readthedocs.io/en/latest/)
+
+:warning: [Pytube](https://pytube.io/en/latest/)
+
+#### Outros:
+:warning: [ffmpeg](https://ffmpeg.org/)* 
+
+*Será substituída posteriormente
+
+Veja como instalar essas dependências [aqui](#como-rodar-o-programa-arrow_forward)
 
 ## API's Utilizadas
 :globe_with_meridians: [Youtube API](https://developers.google.com/youtube/?hl=pt_BR)
@@ -63,7 +70,7 @@ O usuário insere o nome da música + artista que deseja baixar. Com esses dados
 No terminal, clone o projeto: 
 
 ```
-git clone 
+git clone https://github.com/maicon15rp/Music-Lyric-Download.git
 ```
 
 Sua pasta estará assim:
@@ -75,7 +82,16 @@ Music-Lyric-Download
 └─── FormatarHarpa.py
 └─── PesquisarMusica.py
 └─── README.md
+└─── requirements.txt
 ```
+
+Dentro de `Music-Lyric-Download` execute:
+```
+pip install requirements.txt
+```
+
+:warning: Além disso, instale o ffmpeg seguindo estes tutoriais: [Windows](https://pt.wikihow.com/Instalar-o-FFmpeg-no-Windows) | [Linux](https://www.hostinger.com.br/tutoriais/como-instalar-ffmpeg)
+
 
 Em  seguida, execute o seguinte arquivo: 
 :open_file_folder:
@@ -136,3 +152,5 @@ Algumas funcionalidades ainda precisam ser melhoradas e ajustadas, tais quais, g
 :memo: Permitir que o usuário escolhar baixar audio, vídeo ou letra individualmente
 
 :memo: Opção de baixar musica e sua versão playback juntas
+
+:memo: Trocar execução do ffmmpg usando subprocess por lib `ffmpeg-python`
