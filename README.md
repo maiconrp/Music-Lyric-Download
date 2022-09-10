@@ -126,3 +126,9 @@ Algumas funcionalidades ainda precisam ser melhoradas e ajustadas, tais quais, g
 :memo: Ajustar e refatorar trechos do Código para melhor legibilidade e desempenho.
 
 :memo: Implementar [Alinhamento Forçado](https://linguistics.berkeley.edu/plab/guestwiki/index.php?title=Forced_alignment#:~:text=Forced%20alignment%20refers%20to%20the,automatically%20generate%20phone%20level%20segmentation.) da música com a letra para criar projeções automáticas.
+
+:memo: Adaptar a entrada de musicas em massa com a função que as receberia
+
+:memo: Permitir que o usuário escolhar baixar audio, vídeo ou letra individualmente
+
+:memo: Opção de baixar musica e sua versão playback juntas
