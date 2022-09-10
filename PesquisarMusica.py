@@ -1,14 +1,11 @@
-import time
-import pyautogui as pg
 import requests
-from pyperclip import copy
 from Download import *
 #KEY gerada ao cadastrar na api vagalume
 VG_KEY = "9ce9c5e4a931844f8c5f20cb9518e99b" 
 TITULOS = BASE_DIR  + "\Titulos.txt"
 CAMINHO_MUSICAS = BASE_DIR  + "\Letras\\"
 
-# Trecho irrelevante para o código como um todo, apenas para pegar titulos de um arquivo pessoal específico
+"""# Trecho irrelevante para o código como um todo, apenas para pegar titulos de um arquivo pessoal específico
 def pegar_titulos():
     time.sleep(2)
     pg.PAUSE = 0.25
@@ -26,7 +23,7 @@ def pegar_titulos():
         pg.click(x=351, y=753)
         pg.click(x=391, y=753)
         ler_titulos()
-
+"""
 def ler_titulos():
     try: 
         with open(f"{TITULOS}", 'r', encoding='utf8') as arquivoTitulos:
