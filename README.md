@@ -32,9 +32,13 @@ O usuário insere o nome da música + artista que deseja baixar. Com esses dados
 :heavy_check_mark: Download em massa
 
 ## Layout :computer:
-:construction: Projeto em construção ainda sem interface.:construction: :hourglass_flowing_sand:
+> :construction: Projeto em construção, interface ainda em desenvolvimento.
 
-:dart: Pretende-se desenvolvê-la com <a href="https://flet.dev/">Flet</a> ou  <a href="https://docs.djangoproject.com/en/4.0/">Django</a>
+#### Protótipos
+:computer: [Desktop](https://www.figma.com/proto/8U3c7uuIjSA8DCGzYZazVC/Music-and-Lyric?node-id=10%3A219&scaling=scale-down&page-id=10%3A218)
+:iphone: [Mobile](https://www.figma.com/proto/8U3c7uuIjSA8DCGzYZazVC/Music-and-Lyric?node-id=1%3A2&scaling=scale-down&page-id=0%3A1)
+
+:dart: Pretende-se desenvolvê-la com [Flet](https://flet.dev/) ou [Django](https://docs.djangoproject.com/en/4.0/)
 
 ## Linguagens, dependencias e pré-requisitos:books:
 :warning: [Python 3](https://www.python.org/downloads/)
