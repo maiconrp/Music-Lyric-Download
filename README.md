@@ -79,7 +79,26 @@ Em  seguida, execute o seguinte arquivo:
 Music-Lyric-Download
 └─── PesquisarMusica.py
 ```
-Por fim, insira o nome da música seguido pelo nome do artista.
+Você receberá a seguinte mensagem:
+
+```
+Music and Lyrics Download
+Como utilizar: [nome da musica] - [nome do artista] - [modo de audio] [modo de pesquisa]
+Ex: "Eu quero ser santo - Eyshila - Playback"
+
+- Parâmetros -
+-- Obrigatórios*:
+[nome da musica]       Insira aqui o nome da música em si
+[nome do artista]      Insira aqui o nome do artista da musica, opcional para baixar a musica, mas essencial para a letra
+
+-- Opcionais:
+[modo de audio]        Insira 'Playback' caso queira a música sem a voz. (Padrão: Normal)
+[modo de pesquisa]     Insira '-p' para pesquisar usando 'pytube.search' (Padrão: -a : Youtube API)
+
+Faça sua pesquisa:
+```
+
+Faça sua pesquisa conforme o cabeçalho acima.
 
 :ballot_box_with_check:Se tudo ocorrer bem, a música será baixada e armazenada na pasta "Playbacks", sua pasta ficará assim: :open_file_folder:
 ```
