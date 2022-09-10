@@ -8,6 +8,7 @@ VG_KEY = "9ce9c5e4a931844f8c5f20cb9518e99b"
 TITULOS = BASE_DIR  + "\Titulos.txt"
 CAMINHO_MUSICAS = BASE_DIR  + "\Letras\\"
 
+# Trecho irrelevante para o código como um todo, apenas para pegar titulos de um arquivo pessoal específico
 def pegar_titulos():
     time.sleep(2)
     pg.PAUSE = 0.25
@@ -48,7 +49,7 @@ def ler_titulos():
                 if musica:
                     print(f"{nome} | {artista} - letra encontrada")
                     guardar_musica(musica)
-                    pesquisar(nome, artista, parametro[2:])
+                    pesquisar(nome, artista, *parametro[2:])
                 else:
                     print(f"{nome} | {artista} - letra não encontrada")
                     continue
@@ -70,7 +71,7 @@ def buscar_musicas(nome, artista):
         if musica['type'] in ['exact','aprox']: 
             print(f"\nMusica encontrada com sucesso!!\nLetra disponivel em: \n\t--> {musica['mus'][0]['url']}")  
             guardar_musica(musica)
-            pesquisar(*parametro)
+            pesquisar(nome, artista, *parametro[2:])
             return musica  
           
     return False
@@ -126,7 +127,7 @@ def guardar_musica(musica):
     except:
         print(f"Não foi possivel guardar essa musica '{nome} - {artista}' ")
 
-tutorial = """"
+tutorial = """
 Music and Lyrics Download
 Como utilizar: [nome da musica] - [nome do artista] - [modo de audio] [modo de pesquisa]
 Ex: "Eu quero ser santo - Eyshila - Playback"
@@ -139,21 +140,10 @@ Ex: "Eu quero ser santo - Eyshila - Playback"
 -- Opcionais:
 [modo de audio]        Insira 'Playback' caso queira a música sem a voz. (Padrão: Normal)
 [modo de pesquisa]     Insira '-p' para pesquisar usando 'pytube.search' (Padrão: -a : Youtube API)
-
 """
 print(tutorial)
 
-def teste(nome, artista = '', audio = '', modo = '-a'):
-    print(nome, artista, audio, modo, sep="|")
-
 parametro = input("Faça sua pesquisa:").split(" - ")
-# print(*parametro[0:2])
+
 buscar_musicas(*parametro[0:2])
 
-# buscar_musicas(
-#     input(">Nome da música: "),
-#     input(">Nome do(a) Artista: ")
-# )
-
-#vc:\Users\User\Documents\Maicon\Programação\Letras-Irmãs\Refatoração\Musicas\"Anderson Freire - Força e Sabedoria".txt
-#c:\Users\User\Documents\Maicon\Programação\Letras-Irmãs\Refatoração\Letras\Força e Sabedoria - Anderson Freire.txt
