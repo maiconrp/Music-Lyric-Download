@@ -3,14 +3,14 @@
 
 ## Índice 
 
-* [Descrição do projeto](https://github.com/maicon15rp/Music-Lyric-Download#descri%C3%A7%C3%A3o-do-projeto)
-* [Como funciona?](https://github.com/maicon15rp/Music-Lyric-Download#como-funciona)
-* [Funcionalidades](https://github.com/maicon15rp/Music-Lyric-Download#funcionalidades-hammer_and_wrench)
-* [Layout](https://github.com/maicon15rp/Music-Lyric-Download#layout-computer)
-* [Linguagens, dependencias e pré-requisitos](https://github.com/maicon15rp/Music-Lyric-Download#linguagens-dependencias-e-pr%C3%A9-requisitosbooks)
-* [APIS Utilizadas](https://github.com/maicon15rp/Music-Lyric-Download#apis-utilizadas)
-* [Como rodar o programa](https://github.com/maicon15rp/Music-Lyric-Download#como-rodar-o-programa-arrow_forward)
-* [Tarefas em aberto](https://github.com/maicon15rp/Music-Lyric-Download#tarefas-em-aberto-hourglass_flowing_sand)
+* [Descrição do projeto](#descri%C3%A7%C3%A3o-do-projeto)
+* [Como funciona?](#como-funciona)
+* [Funcionalidades](#funcionalidades-hammer_and_wrench)
+* [Layout](#layout-computer)
+* [Linguagens, dependencias e pré-requisitos](#linguagens-dependencias-e-pr%C3%A9-requisitosbooks)
+* [APIS Utilizadas](#apis-utilizadas)
+* [Como rodar o programa](#como-rodar-o-programa-arrow_forward)
+* [Tarefas em aberto](#tarefas-em-aberto-hourglass_flowing_sand)
 
 ## Descrição do projeto 
 
@@ -63,7 +63,7 @@ O usuário insere o nome da música + artista que deseja baixar. Com esses dados
 No terminal, clone o projeto: 
 
 ```
-git clone https://github.com/maicon15rp/Music-Lyric-Download
+git clone 
 ```
 
 Sua pasta estará assim:
