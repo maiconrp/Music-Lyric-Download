@@ -4,8 +4,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/maicon15rp/Music-Lyric-Download?style=for-the-badge)](https://github.com/maicon15rp/Music-Lyric-Download/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/maicon15rp/Music-Lyric-Download?style=for-the-badge)](https://github.com/maicon15rp/Music-Lyric-Download/network)
 
-## Índice 
+ 
 
+<details>
+  <summary><h2>Índice</h2></summary>
+  
 * [Descrição do projeto](#descri%C3%A7%C3%A3o-do-projeto)
 * [Como funciona?](#como-funciona)
 * [Funcionalidades](#funcionalidades-hammer_and_wrench)
@@ -14,6 +17,8 @@
 * [APIS Utilizadas](#apis-utilizadas)
 * [Como rodar o programa](#como-rodar-o-programa-arrow_forward)
 * [Tarefas em aberto](#tarefas-em-aberto-hourglass_flowing_sand)
+
+</details>
 
 ## Descrição do projeto 
 
@@ -145,8 +150,21 @@ Onde a letra é armazenada na pasta `Letras`, a música nas subpastas `Audios` e
 
 Em [issues](https://github.com/maicon15rp/Music-Lyric-Download/issues) temos a resolução de alguns problemas que foram abertos e ocorreram ou estão ocorrendo durante o desenvolvimento desse projeto. 
 
-## Tarefas em aberto :hourglass_flowing_sand:
+## 
 
+<details>
+  <summary><h2>Índice</h2></summary>
+  
+* [Descrição do projeto](#descri%C3%A7%C3%A3o-do-projeto)
+* [Como funciona?](#como-funciona)
+* [Funcionalidades](#funcionalidades-hammer_and_wrench)
+* [Layout](#layout-computer)
+* [Linguagens, dependencias e pré-requisitos](#linguagens-dependencias-e-pr%C3%A9-requisitosbooks)
+* [APIS Utilizadas](#apis-utilizadas)
+* [Como rodar o programa](#como-rodar-o-programa-arrow_forward)
+* [Tarefas em aberto](#tarefas-em-aberto-hourglass_flowing_sand)
+
+</details>
 Algumas funcionalidades ainda precisam ser melhoradas e ajustadas, tais quais, giram em torno de:
 
 :memo: Desenvolver a interface para promover uma melhor experiencia de uso do programa.
