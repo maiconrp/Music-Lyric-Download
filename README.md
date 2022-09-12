@@ -138,6 +138,10 @@ Music-Lyric-Download
 
 Onde a letra é armazenada na pasta `Letras`, a música nas subpastas `Audios` e `Videos`
 
+## Resolvendo Problemas :exclamation:
+
+Em [issues](https://github.com/maicon15rp/Music-Lyric-Download/issues) temos a resolução de alguns problemas que foram abertos e ocorreram ou estão ocorrendo durante o desenvolvimento desse projeto. 
+
 ## Tarefas em aberto :hourglass_flowing_sand:
 
 Algumas funcionalidades ainda precisam ser melhoradas e ajustadas, tais quais, giram em torno de:
