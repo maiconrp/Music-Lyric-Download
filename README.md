@@ -85,20 +85,21 @@ Music-Lyric-Download
 └─── requirements.txt
 ```
 
-Dentro de `Music-Lyric-Download` execute:
+Dentro de `Music-Lyric-Download`,  execute:
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 :warning: Além disso, instale o ffmpeg seguindo estes tutoriais: [Windows](https://pt.wikihow.com/Instalar-o-FFmpeg-no-Windows) | [Linux](https://www.hostinger.com.br/tutoriais/como-instalar-ffmpeg)
 
 
-Em  seguida, execute o seguinte arquivo: 
+Em  seguida, execute o arquivo `PesquisarMusica.py` com o comando*: 
 :open_file_folder:
 ```
-Music-Lyric-Download
-└─── PesquisarMusica.py
+py PesquisarMusica.py
 ```
+*Em alguns casos, o comando pode variar: `python PesquisarMusica.py`, `python3 PesquisarMusica.py`, `py3 PesquisarMusica.py`
+
 Você receberá a seguinte mensagem:
 
 ```
