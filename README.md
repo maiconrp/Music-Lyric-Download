@@ -1,5 +1,8 @@
 # Music Lyric Download
-![Badge em Desenvolvimento](https://img.shields.io/badge/Status-Em%20Desenvolvimento%20-green)
+[![Badge em Desenvolvimento](https://img.shields.io/badge/Status-Em%20Desenvolvimento%20-green?style=for-the-badge)](https://github.com/maicon15rp/Music-Lyric-Download)
+[![GitHub issues](https://img.shields.io/github/issues/maicon15rp/Music-Lyric-Download?style=for-the-badge)](https://github.com/maicon15rp/Music-Lyric-Download/issues)
+[![GitHub stars](https://img.shields.io/github/stars/maicon15rp/Music-Lyric-Download?style=for-the-badge)](https://github.com/maicon15rp/Music-Lyric-Download/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/maicon15rp/Music-Lyric-Download?style=for-the-badge)](https://github.com/maicon15rp/Music-Lyric-Download/network)
 
 ## Índice 
 
