@@ -1,6 +1,5 @@
 import requests
 import pytube
-import subprocess
 import os
 
 YT_KEY = "AIzaSyAOp__h-TG_zyFkg_t9KiaSUQxfim_oF6g"
@@ -13,11 +12,11 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SPCHAR = r"\/.?*|"
 
 #c:\Users\User\Documents\Maicon\Programação\Letras-Irmãs\Playbacks
-CAMINHO_PB = BASE_DIR + "\Playbacks" 
+CAMINHO_MUS = BASE_DIR + "\Musicas" 
 
 def pesquisar(nome, artista = '', audio = '', modo = '-a'):
     
-    pesquisa = f"{nome} - {artista} - {audio}"
+    pesquisa = f"{nome} - {artista} - {audio}" if audio != '' else f"{nome} - {artista}"
     print(f"\nVerificando arquivos de mídia de '{pesquisa}'")
 
     parametros = {
@@ -37,7 +36,7 @@ def pesquisar(nome, artista = '', audio = '', modo = '-a'):
         videoId = video["items"][0]["id"]["videoId"]
 
     if videoId:
-        print(f"\nMusica encontrada!! \nUrl: {URL + videoId} \nID: {videoId}")
+        print(f"\nMusica encontrada: {URL + videoId}")
         return baixar(videoId, pesquisa)
 
     else:
@@ -52,38 +51,26 @@ def baixar(videoId, musica):
         musica = musica.replace(c, "-") 
     
     video = yt.streams.get_highest_resolution()
+    audio = yt.streams.filter(only_audio=True)[-1]
 
-    caminhoMp4 = fr'{CAMINHO_PB}\Videos\\"{musica}".mp4'
-    caminhoFlac = fr'{CAMINHO_PB}\Musicas\\"{musica}".flac'
+    caminhoMp4 = fr'{CAMINHO_MUS}\Videos\\"{musica}".mp4'
+    caminhoMp3 = fr'{CAMINHO_MUS}\Audios\\"{musica}".mp3'
 
-    print("Realizando download da música no formato .mp4 (vídeo)...")
+    print("\nRealizando download da música no formato .mp4 (vídeo)...\n")
 
     try: 
-        video.download(output_path = CAMINHO_PB+"\Videos\\", filename = f"{musica}" + '.mp4')             
-        print(f"Download realizado com sucesso!!!\n - video salvo em:\n\t-->  {caminhoMp4}")
+        video.download(output_path = CAMINHO_MUS+"\Videos\\", filename = f"{musica}" + '.mp4') 
+        audio.download(output_path = CAMINHO_MUS+"\Audios\\", filename = f"{musica}" + '.mp3')
+
+        print("Download realizado com sucesso!!!")        
+        print(f"- Arquivo de Vídeo: {caminhoMp4}")
+        print(f"- Arquivo de Áudio: {caminhoMp3}")
 
     except: 
         print("Ocorreu algum erro ao baixar a música")
 
-    else: 
-        return converter(caminhoMp4, caminhoFlac)
 
-def converter(caminhoMp4, caminhoFlac):
-    print("Convertendo o arquivo...")  
 
-    ffmpeg = (f"ffmpeg -i  {caminhoMp4} -b:v 320k -vn -ar 48000 -acodec flac -ac 2 -ab 320k -f flac {caminhoFlac} -y -stats -loglevel quiet")
-
-    try: 
-        subprocess.run(
-            ffmpeg, 
-            shell=True, 
-            encoding='utf8',
-            )
-
-        print(f"Arquivo convertido salvo em:\n\t--> {caminhoFlac}")
-
-    except: 
-        print("Erro ao converter o arquivo")
 
 
 
