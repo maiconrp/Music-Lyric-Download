@@ -5,25 +5,6 @@ VG_KEY = "9ce9c5e4a931844f8c5f20cb9518e99b"
 TITULOS = BASE_DIR  + "\Titulos.txt"
 CAMINHO_MUSICAS = BASE_DIR  + "\Letras\\"
 
-"""# Trecho irrelevante para o código como um todo, apenas para pegar titulos de um arquivo pessoal específico
-def pegar_titulos():
-    time.sleep(2)
-    pg.PAUSE = 0.25
-    for i in range(2,10):
-        pg.click(x=70, y=723)   #clicar na pagina no arquivo (x=70, y=723)
-        pg.write(f'{i}')        #selecionar pag pg.write(i)
-        pg.press('enter')       #dar enter pg.press('enter')
-        pg.click(x=241, y=478)  #clicar na celula do arquivo 
-        pg.hotkey('ctrl', 'c')  #copiar o texto pg.hotkey('crtl', 'c')
-        pg.click(x=238, y=757)  #clicar no arquivo txt Point(x=238, y=757)
-        pg.hotkey('ctrl', 'v')  #colar pg.hotkey('crtl', 'v')
-        pg.hotkey('ctrl', 's')  #salvar o arquivo
-        #repete
-    else:
-        pg.click(x=351, y=753)
-        pg.click(x=391, y=753)
-        ler_titulos()
-"""
 def ler_titulos():
     try: 
         with open(f"{TITULOS}", 'r', encoding='utf8') as arquivoTitulos:
@@ -66,7 +47,7 @@ def buscar_musicas(nome, artista):
         print(f"Não foi possivel pesquisar a musica '{nome} - {artista}' ")
     else:
         if musica['type'] in ['exact','aprox']: 
-            print(f"\nMusica encontrada com sucesso!!\nLetra disponivel em: \n\t--> {musica['mus'][0]['url']}")  
+            print(f"\nMusica encontrada!\nLetra: {musica['mus'][0]['url']}")  
             guardar_musica(musica)
             pesquisar(nome, artista, *parametro[2:])
             return musica  
