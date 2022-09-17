@@ -1,4 +1,38 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
+from multiselectfield import MultiSelectField
+
+class PesquisaVagalume(models.Model):
+    EXTRA_CHOICES = (
+        ("alb",     "Album"),
+        ("relart",  "Artistas Relacionados"),
+        ("relmus",  "Músicas Relacionadas"),
+        ("rank",    "Ranking"),    
+    )
+    art = models.CharField(
+        max_length=100,
+        default=''
+    ) 
+    mus = models.CharField(
+        max_length=100,
+        default=''
+    )
+    musid = models.CharField(
+        max_length=100,
+        default=''
+    )
+    nolyrics = models.BooleanField(default=False)
+    
+    extra = MultiSelectField(
+        max_length = 20,
+        max_choices = 4,
+        choices = EXTRA_CHOICES,
+        null = True,
+    )
+    apikey = models.CharField(
+        max_length=100,
+        default='9ce9c5e4a931844f8c5f20cb9518e99b'
+    )
 
 class Artista(models.Model):
     id = models.CharField(
@@ -79,17 +113,4 @@ class Musica(models.Model):
         on_delete=models.CASCADE,
         related_name='Musica'
     )
-    """
-    type
-art
-    name
-    url
-mus
-    id
-    name
-    lang
-    url
-    text
-    translate
-    """
-# Create your models here.
+
