@@ -1,8 +1,20 @@
-# Byte-compiled / optimized / DLL files
 __pycache__/
 Letras/
 Playbacks/
 Musicas/
+
+# Django #
+*.log
+*.pot
+*.pyc
+MusicLyricProject/__pycache__/
+db.sqlite3
+media
+
+# Backup files # 
+*.bak
+
+# Byte-compiled / optimized / DLL files
 *.py[cod]
 *$py.class
 
