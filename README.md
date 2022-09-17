@@ -151,12 +151,10 @@ Algumas funcionalidades ainda precisam ser melhoradas e ajustadas, tais quais, g
 
 :memo: Adaptar a entrada de musicas em massa com a função que as receberia
 
-:memo: Permitir que o usuário escolhar baixar audio, vídeo ou letra individualmente
+:memo: Personalização download
 
-:memo: Opção de baixar musica e sua versão playback juntas
 
-:memo: Trocar execução do ffmmpg usando subprocess por lib `ffmpeg-python`
 
 ## Ultimas atualizações :fire:
 
-:heavy_check_mark: Troca de ffmpeg por pytube
+:heavy_check_mark: Troca de `ffmpeg` por `pytube`
