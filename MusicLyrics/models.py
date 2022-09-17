@@ -1,8 +1,9 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from multiselectfield import MultiSelectField
+import requests
 
-class PesquisaVagalume(models.Model):
+class Pesquisa(models.Model):
     EXTRA_CHOICES = (
         ("alb",     "Album"),
         ("relart",  "Artistas Relacionados"),
@@ -19,20 +20,35 @@ class PesquisaVagalume(models.Model):
     )
     musid = models.CharField(
         max_length=100,
-        default=''
+        default='',
+        null = True,
+        blank = True
     )
-    nolyrics = models.BooleanField(default=False)
+    nolyrics = models.BooleanField(
+        default=False,
+        null = True,
+        blank = True)
     
     extra = MultiSelectField(
         max_length = 20,
         max_choices = 4,
         choices = EXTRA_CHOICES,
         null = True,
+        blank = True
     )
     apikey = models.CharField(
         max_length=100,
         default='9ce9c5e4a931844f8c5f20cb9518e99b'
     )
+    def result(self):
+        parametros = {
+            'art': self.art,
+            'mus': self.mus,
+            'apikey': self.apikey,
+            'nolyrics' : self.nolyrics,
+            'extra' : self.extra
+        }
+        return requests.get(f"https://api.vagalume.com.br/search.php", params=parametros).json()
 
 class Artista(models.Model):
     id = models.CharField(
