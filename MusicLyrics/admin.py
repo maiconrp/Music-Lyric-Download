@@ -7,4 +7,4 @@ from .models import *
 admin.site.register(Pesquisa)
 admin.site.register(Artista)
 admin.site.register(Musica)
-admin.site.register(Letra)
+admin.site.register(Video)
