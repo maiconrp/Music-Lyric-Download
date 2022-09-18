@@ -3,10 +3,10 @@ from multiselectfield import MultiSelectField
 
 class Pesquisa(models.Model):
     EXTRA_CHOICES = (
-        ("alb",     "Album"),
+        ("alb",     "Album da música"),
         ("relart",  "Artistas Relacionados"),
         ("relmus",  "Músicas Relacionadas"),
-        ("rank",    "Ranking"),    
+        ("rank",    "Ranking da artista"),    
     )
     art = models.CharField(
         max_length=100,
@@ -18,7 +18,6 @@ class Pesquisa(models.Model):
     )
     musid = models.CharField(
         max_length=100,
-        null = True,
         blank = True
     )
     nolyrics = models.BooleanField(
@@ -37,13 +36,7 @@ class Pesquisa(models.Model):
         max_length=100,
         default='9ce9c5e4a931844f8c5f20cb9518e99b'
     )
-    # result = models.JSONField(
-    #     max_length=100,
-    #     default = {'a':'a'},
-    #     null = True,
-    #     blank = True    
-    # )
-    
+
 class Video(models.Model):
     id = models.CharField(
         max_length=11,
@@ -88,34 +81,30 @@ class Musica(models.Model):
     name = models.CharField(
         max_length=100,
         default=''
-    ) 
-    lang = models.CharField(
-        max_length=100,
-        default=''
-    ) 
+    )  
     url = models.URLField(
         max_length=100,
         default=''
-    ) 
-    letra = models.TextField(
+    )
+    lang = models.IntegerField(
+        default=1
+    )
+    text = models.TextField(
         max_length=2000,
         default=''
-    ) 
-    translate = models.TextField(
-        max_length=2000,
-        default='',
-        null = True,
-        blank = True
     ) 
     artista = models.ForeignKey(
         Artista,
         on_delete=models.CASCADE,
-        related_name='Musica'
+        related_name='Musica',
+        blank = True,
+        null = True,
+       
     )
-    video = models.ForeignKey(
-        Video,
-        on_delete=models.CASCADE,
-        related_name='Musica'
-    )
+    # video = models.ForeignKey(
+    #     Video,
+    #     on_delete=models.CASCADE,
+    #     related_name='Musica'
+    # )
 
 
