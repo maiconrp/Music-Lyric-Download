@@ -35,29 +35,49 @@ def result(request, pesquisa):
     resposta = requests.get(f"https://api.vagalume.com.br/search.php", params=parametros).json()
     
     if resposta['type'] in ['exact','aprox']:
-        return preenche_musica(resposta)
+        return teste_musica(resposta)
 
     # return preenche_musica(resposta)
 
-def preenche_artista(resposta):
-    data = resposta['art']
-    artista = ArtistaForm(data)
-    if artista.is_valid():
-        artista.save()
-        print('artista.is_valid()')
-        return artista
+def artista(resposta):
+    artista = Artista.objects.get_or_create(
+        id = resposta['art']['id'], 
+        name = resposta['art']['name'], 
+        url = resposta['art']['url']
 
-def preenche_musica(resposta):
+    )[0]
+    return artista
+    # data = resposta['art']
+    # artista = ArtistaForm(data)
+    # if artista.is_valid():
+    #     artista.save()
+    #     print('artista.is_valid()')
+    #     return artista
+
+def old_musica(resposta):
     data = resposta['mus'][0]
     pre_musica = MusicaForm(data) 
     
     if pre_musica.is_valid():
         musica = pre_musica.save(commit=False)
-        musica.artista = preenche_artista(resposta)
+        musica.artista = artista(resposta)
         musica.save()
         return musica
     else:
         print(musica.errors)
+
+def musica(resposta):
+    data = resposta['mus'][0]
+    musica = Musica.objects.get_or_create(
+        id = data['id'], 
+        name = data['name'], 
+        url = data['url'],
+        lang = data['lang'],
+        text = data['text'],
+    )[0]
+    musica.artista = artista(resposta)
+    musica.save()
+    return musica
 
         
     
