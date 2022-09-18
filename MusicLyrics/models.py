@@ -1,7 +1,5 @@
-from unittest.util import _MAX_LENGTH
 from django.db import models
 from multiselectfield import MultiSelectField
-import requests
 
 class Pesquisa(models.Model):
     EXTRA_CHOICES = (
@@ -20,7 +18,6 @@ class Pesquisa(models.Model):
     )
     musid = models.CharField(
         max_length=100,
-        default='',
         null = True,
         blank = True
     )
@@ -40,66 +37,14 @@ class Pesquisa(models.Model):
         max_length=100,
         default='9ce9c5e4a931844f8c5f20cb9518e99b'
     )
-    def result(self):
-        parametros = {
-            'art': self.art,
-            'mus': self.mus,
-            'apikey': self.apikey,
-            'nolyrics' : self.nolyrics,
-            'extra' : self.extra
-        }
-        return requests.get(f"https://api.vagalume.com.br/search.php", params=parametros).json()
-
-class Artista(models.Model):
-    id = models.CharField(
-        max_length=17,
-        default='',
-        primary_key=True
-    ) 
-    name = models.CharField(
-        max_length=100,
-        default=''
-    ) 
-    url = models.URLField(
-        max_length=100,
-        default=''
-    ) 
-
-class Letra(models.Model):
-    id = models.CharField(
-        max_length=17,
-        default='',
-        primary_key=True
-    ) 
-    name = models.CharField(
-        max_length=100,
-        default=''
-    ) 
-    lang = models.CharField(
-        max_length=100,
-        default=''
-    ) 
-    url = models.URLField(
-        max_length=100,
-        default=''
-    ) 
-    text = models.TextField(
-        max_length=2000,
-        default=''
-    ) 
-    translate = models.TextField(
-        max_length=2000,
-        default='',
-        null = True,
-        blank = True
-    ) 
-    artista = models.ForeignKey(
-        Artista,
-        on_delete=models.CASCADE,
-        related_name='Letra'
-    )
-
-class Musica(models.Model):
+    # result = models.JSONField(
+    #     max_length=100,
+    #     default = {'a':'a'},
+    #     null = True,
+    #     blank = True    
+    # )
+    
+class Video(models.Model):
     id = models.CharField(
         max_length=11,
         default='',
@@ -119,14 +64,58 @@ class Musica(models.Model):
     ) 
     duration = models.DurationField()
 
-    letra = models.ForeignKey(
-        Letra,
-        on_delete=models.CASCADE,
-        related_name='Musica'
-    )
+class Artista(models.Model):
+    id = models.CharField(
+        max_length=17,
+        default='',
+        primary_key=True
+    ) 
+    name = models.CharField(
+        max_length=100,
+        default=''
+    ) 
+    url = models.URLField(
+        max_length=100,
+        default=''
+    ) 
+
+class Musica(models.Model):
+    id = models.CharField(
+        max_length=17,
+        default='',
+        primary_key=True
+    ) 
+    name = models.CharField(
+        max_length=100,
+        default=''
+    ) 
+    lang = models.CharField(
+        max_length=100,
+        default=''
+    ) 
+    url = models.URLField(
+        max_length=100,
+        default=''
+    ) 
+    letra = models.TextField(
+        max_length=2000,
+        default=''
+    ) 
+    translate = models.TextField(
+        max_length=2000,
+        default='',
+        null = True,
+        blank = True
+    ) 
     artista = models.ForeignKey(
         Artista,
         on_delete=models.CASCADE,
         related_name='Musica'
     )
+    video = models.ForeignKey(
+        Video,
+        on_delete=models.CASCADE,
+        related_name='Musica'
+    )
+
 
