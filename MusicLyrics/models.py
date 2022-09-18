@@ -71,6 +71,8 @@ class Artista(models.Model):
         max_length=100,
         default=''
     ) 
+    def __str__(self):
+        return self.name
 
 class Musica(models.Model):
     id = models.CharField(
@@ -106,5 +108,8 @@ class Musica(models.Model):
     #     on_delete=models.CASCADE,
     #     related_name='Musica'
     # )
+
+    def __str__(self):
+        return f"{self.name} - {self.artista}"
 
 
