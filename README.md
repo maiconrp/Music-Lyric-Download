@@ -153,6 +153,26 @@ Algumas funcionalidades ainda precisam ser melhoradas e ajustadas, tais quais, g
 
 :memo: Personalização download
 
+## Django Steps
+1. [x] Configuração Inicial
+2. [x] Letras
+    - [x] Pesquisar
+    - [x] Salvar
+    - [ ] Formatar 
+    - [ ] Baixar
+  
+3. [ ] Músicas:
+    - [ ] Pesquisar
+    - [ ] Salvar
+    - [ ] Baixar
+
+4. [ ] Artistas
+    - [ ] Pesquisar
+    - [ ] Salvar
+    - [ ] Ordenar
+    
+    
+
 
 
 ## Ultimas atualizações :fire:
