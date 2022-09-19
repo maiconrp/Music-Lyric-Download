@@ -1,4 +1,4 @@
-
+{%load bootstrap%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +9,102 @@
 </head>
 <body>
     {% block content %}
-  <form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit" />
-  </form>
+    <div id="td">
+      <form action="" method="post">
+        {% csrf_token %}
+        <h2>Faça Sua pesquisa</h2>
+        <div>
+          {{form|bootstrap}}
+        </div>
+
+        <input type="submit" value="Submit" id="submit"/>
+      </form>
+      <div>
+        <h2>Letra:</h2>
+      <p>
+        {{musica.text|linebreaks}}
+      </p>
+      </div>
+      <div class="Pequisadas">  
+        <div>
+          <h2>Musicas pesquisadas</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Artista</th>
+                <th>ID</th>
+                <th>Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for pesquisada in lista_de_musicas%}
+                <tr>
+                 
+                  <td>{{pesquisada.name}}</td>
+                  <td>{{pesquisada.artista}}</td>
+                  <td>{{pesquisada.id}}</td>
+                  <td><a href="{{pesquisada.url}}">Ir para o link</a></td>
+                  
+                </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+        
+        <div>
+          <h2>Artistas pesquisados</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for pesquisado in lista_de_artistas%}
+                <tr>
+                  <td>{{pesquisado.id}}</td>
+                  <td>{{pesquisado.name}}</td>
+                  <td><a href="{{pesquisado.url}}">Ir para o link</a></td>
+                </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  
+        <!-- params_keys':params_keys,
+        'params_values': params_values,
+        'parametros':parametros -->
+        <style>
+          body{
+            padding: 2em;
+          }
+          #td{
+            display:  flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 3em;
+          }
+          
+          p{
+            text-align: justify;
+          
+          }
+          #submit{
+            width: 11rem;
+            padding: 0.5rem;
+            margin-top:1rem;
+          }
+          td {
+            border: 5px solid transparent;
+            background-clip: padding-box;
+        }
+        </style>
 {% endblock %}
 </body>
 </html>
