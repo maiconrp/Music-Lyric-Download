@@ -14,7 +14,9 @@ def pesquisar(request):
             pesquisa.save()
             context = {
                 'form' : pesquisa,
-                'musica':result(request, pesquisa)
+                'musica':result(request, pesquisa),
+                'lista_de_musicas': Musica.objects.all,
+                'lista_de_artistas': Artista.objects.all
             }
             return render(request, 'home.html', context)
     else:
@@ -35,7 +37,7 @@ def result(request, pesquisa):
     resposta = requests.get(f"https://api.vagalume.com.br/search.php", params=parametros).json()
     
     if resposta['type'] in ['exact','aprox']:
-        return teste_musica(resposta)
+        return musica(resposta)
 
     # return preenche_musica(resposta)
 
@@ -44,27 +46,8 @@ def artista(resposta):
         id = resposta['art']['id'], 
         name = resposta['art']['name'], 
         url = resposta['art']['url']
-
     )[0]
     return artista
-    # data = resposta['art']
-    # artista = ArtistaForm(data)
-    # if artista.is_valid():
-    #     artista.save()
-    #     print('artista.is_valid()')
-    #     return artista
-
-def old_musica(resposta):
-    data = resposta['mus'][0]
-    pre_musica = MusicaForm(data) 
-    
-    if pre_musica.is_valid():
-        musica = pre_musica.save(commit=False)
-        musica.artista = artista(resposta)
-        musica.save()
-        return musica
-    else:
-        print(musica.errors)
 
 def musica(resposta):
     data = resposta['mus'][0]
@@ -79,7 +62,18 @@ def musica(resposta):
     musica.save()
     return musica
 
-        
+def old_musica(resposta):
+    data = resposta['mus'][0]
+    pre_musica = MusicaForm(data) 
+    
+    if pre_musica.is_valid():
+        musica = pre_musica.save(commit=False)
+        musica.artista = artista(resposta)
+        musica.save()
+        return musica
+    else:
+        print(musica.errors)
+
     
     
 # Create your views here
